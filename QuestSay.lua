@@ -167,7 +167,7 @@ end
 
 function QS_PrintOut(outsystem, msg)
 	msg = string.sub(msg, 1, 254);
-	if ( outsystem == "p" and GetNumPartyMembers()>0 ) then
+	if ( outsystem == "p" and GetNumGroupMembers()>0 ) then
 		SendChatMessage(msg, "PARTY");
 	elseif ( outsystem == "r" and UnitInRaid("player") ) then
 		SendChatMessage(msg, "RAID");
