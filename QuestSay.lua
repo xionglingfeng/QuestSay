@@ -115,7 +115,7 @@ function QS_ParamParser(msg)
  		local a,b,c=strfind(msg, "(%S+)"); --contiguous string of non-space characters
  		if a then
  			return c, strsub(msg, b+2);
- 		else	
+ 		else
  			return "";
  		end
  	end
@@ -126,7 +126,7 @@ function QS_GetQuestIndexByTitle(title)
 	local numEntries = GetNumQuestLogEntries();
 	local questLogTitleText;
 	for i=1, numEntries do
-		questLogTitleText = GetQuestLogTitle(i);
+		questLogTitleText = string.match(GetQuestLogTitle(i), '^%[?%d*%]?(%s*.*)$');
 		if ( questLogTitleText == title ) then
 			return i;
 		end
@@ -201,7 +201,7 @@ function QS_ListDropDown_Initialize()
 	  --guild
 	if ( UIDROPDOWNMENU_MENU_LEVEL == 2 ) then
 		if ( UIDROPDOWNMENU_MENU_VALUE == QS_LB_OBJECTIVES ) then
-		
+
 		end
 		info = {};
 		info.text = QS_LB_PARTY;
